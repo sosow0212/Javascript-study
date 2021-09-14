@@ -1,15 +1,11 @@
-function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
+import axios from "axios";
+
+function fetchMovies() {
+  axios
+  .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+  .then((response) => {
+    console.log(response)
+  })
 }
 
-ask(
-  "동의하십니까?",
-  function() { alert("동의하셨습니다."); },
-  function() { alert("취소 버튼을 누르셨습니다."); }
-);
-
-
-let ask = () => {
-  
-}
+fetchMovies();
