@@ -2222,8 +2222,12 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function fetchMovies() {
-  _axios.default.get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen').then(function (response) {
-    console.log(response);
+  _axios.default.get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen').then(function (res) {
+    console.log(res);
+    var h1El = document.querySelector('h1');
+    var imgEl = document.querySelector('img');
+    h1El.textContent = res.data.Search[0].Title;
+    imgEl.src = res.data.Search[0].Poster;
   });
 }
 
@@ -2256,7 +2260,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62670" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64098" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
